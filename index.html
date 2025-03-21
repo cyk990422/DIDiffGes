@@ -1,0 +1,454 @@
+
+<!DOCTYPE html>
+<style type="text/css">
+  .layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.35), /* The top layer shadow */ 5px 5px 0 0px #fff, /* The second layer */ 5px 5px 1px 1px rgba(0, 0, 0, 0.35), /* The second layer shadow */ 10px 10px 0 0px #fff, /* The third layer */ 10px 10px 1px 1px rgba(0, 0, 0, 0.35); /* The third layer shadow */
+    margin-left: 10px;
+    margin-right: 45px;
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  }
+</style>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>DIDiffGes</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <script type="text/javascript" async
+          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    });
+
+
+
+
+  </script>
+
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">DIDiffGes: Decoupled Semi-Implicit Diffusion Models for Real-time Gesture Generation from Speech</h1>
+          <div class="is-size-5 publication-authors">
+            <!-- Paper authors -->
+            <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=jUAyNjEAAAAJ&hl=en"
+                   target="_blank">Yongkang Cheng</a><sup>1,3</sup>,</span>
+            <span class="author-block">
+                <a href="" target="_blank">Shaoli Huang</a><sup>1</sup><sup>†</sup>,</span>
+            <span class="author-block">
+              <a href="" target="_blank">Xuelin Chen</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="" target="_blank">Jifeng Ning</a><sup>3</sup>,</span>
+            <span class="author-block">
+              <a href="" target="_blank">Mingming Gong</a><sup>2,4
+          </div>
+
+          <div class="is-size-5 publication-authors">
+                    <span class="author-block"><sup>1</sup>Tencent AILab, <sup>2</sup>The University of Melbourne, <sup>3</sup>Northwest A&F University, <sup>4</sup>Mohamed bin Zayed University of Artificial Intelligence
+                      <span class="eql-cntrb"><small><br><sup>†</sup>Indicates Corresponding Author</small></span>
+          </div>
+          <div class="is-size-2 publication-authors"><br>AAAI 2025 😎 </span></div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Arxiv PDF link -->
+              <span class="link-block">
+                <a href="" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <!-- Supplementary PDF link
+              <span class="link-block">
+                <a href="static/pdfs/CVPR_2023_R2ET_supply.pdf" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fas fa-file-pdf"></i>
+                </span>
+                <span>Supplementary</span>
+              </a>
+            </span> -->
+
+              <!-- Github link -->
+              <span class="link-block">
+                <a href="https://github.com/cyk990422/Efficient-Audio-Gesture" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+
+              <!-- ArXiv abstract Link -->
+              <span class="link-block">
+                <a href="" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Method -->
+<section class="section" id="Teaser">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <!-- <h2 class="title is-3">Method Overview</h2> -->
+        <div class="content has-text-justified">
+          <center>
+            <table align=center width=850px>
+              <tr>
+                <td>
+                  Comparison of four different sampling methods: DSG with DDPM, DSG with DDIM, our method with 1000-step sampling, and our method with 10-step sampling.
+                </td>
+              </tr>
+            </table>
+            <table align=center width=850px>
+              <tr>
+                <td width=850px>
+                  <center>
+                    <img class="round" style="width:850px" src="static/images/Picture2.png"/>
+                  </center>
+                </td>
+              </tr>
+            </table>
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <!-- <center>
+      <img class="round" style="width:850px" src="static/images/titleimg.jpg"/>
+    </center> -->
+    <h2 class="subtitle has-text-centered">
+      We used DIDiffGes</span>, ChatGPT, and Blender to build a real-time human-avatar dialogue system.
+    </h2>
+
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">+
+        <!-- Your video here -->
+        <source src="./static/videos/chatgpt.mp4"
+                type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Diffusion models have demonstrated remarkable synthesis quality and  diversity in generating co-speech gestures. However, the computationally intensive 
+            sampling steps associated with diffusion models hinder their practicality in real-world applications. Hence, we present DIDiffGes, for a Decoupled 
+            Semi-Implicit Diffusion model-based framework, that can synthesize high-quality, expressive gestures from speech using only a few sampling steps.
+            Our approach leverages Generative Adversarial Networks (GANs) to enable large-step sampling for diffusion model. We decouple gesture data into body 
+            and hands distributions and further decompose them into marginal and conditional distributions. GANs model the marginal distribution implicitly, while 
+            L2 reconstruction loss learns the conditional distributions exciplictly. This strategy enhances GAN training stability and ensures expressiveness of generated 
+            full-body gestures. Our framework also learns to denoise root noise conditioned on local body representation, guaranteeing stability and realism. DIDiffGes can 
+            generate gestures from speech with just 10 sampling steps, without compromising quality and expressiveness, reducing the number of sampling steps by a factor of 
+            100 compared to existing methods. Our user study reveals that our method outperforms state-of-the-art approaches in human likeness, appropriateness, and style correctness. 
+            
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Method -->
+<section class="section" id="method">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method Overview</h2>
+        <div class="content has-text-justified">
+          <center>
+            <table align=center width=850px>
+              <tr>
+                <td width=850px>
+                  <center>
+                    <img class="round" style="width:850px" src="static/images/Picture1.png"/>
+                  </center>
+                </td>
+              </tr>
+            </table>
+            <table align=center width=850px>
+              <tr>
+                <td>
+                  Our learning framework integrates a Sequential Diffusion Denoiser with two transformer encoders and a Decoupled Semi-implicit Objective. 
+                  The first encoder denoises local motion and provides a conditional signal for the second encoder, which denoises root noise. The final result, 
+                  a combination of local motion and root result, is added with t-1 step noise via posterior sampling and then decoupled into body and hand noise. 
+                  These noise undergo adversarial training against prior sampled noise, supervised by Auxiliary Forward Diffusion Loss. For a detailed description 
+                  of the network architecture, please refer to our supplementary materials.
+                </td>
+              </tr>
+            </table>
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Method -->
+
+
+<section class="section" id="method">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Qualitative Experiment</h2>
+        <div class="content has-text-justified">
+          <center>
+            <table align=center width=850px>
+              <tr>
+                <td width=850px>
+                  <center>
+                    <img class="round" style="width:850px" src="static/images/qual3-1.png"/>
+                  </center>
+                </td>
+              </tr>
+            </table>
+            <!-- <table align=center width=850px>
+              <tr>
+                <td>
+                  Our learning framework integrates a Sequential Diffusion Denoiser with two transformer encoders and a Decoupled Semi-implicit Objective. 
+                  The first encoder denoises local motion and provides a conditional signal for the second encoder, which denoises root noise. The final result, 
+                  a combination of local motion and root result, is added with t-1 step noise via posterior sampling and then decoupled into body and hand noise. 
+                  These noise undergo adversarial training against prior sampled noise, supervised by Auxiliary Forward Diffusion Loss. For a detailed description 
+                  of the network architecture, please refer to our supplementary materials.
+                </td>
+              </tr>
+            </table> -->
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- video carousel -->
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <br>
+    <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3">Results (Generate three different results for each audio.)</h2>
+    </div>
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item 100">
+          <video poster="" id="pelvis1" autoplay controls muted loop height="100%">
+            <source src="./static/videos/hologest_video1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item 100">
+          <video poster="" id="pelvis1" autoplay controls muted loop height="100%">
+            <source src="./static/videos/hologest_video2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item 100">
+          <video poster="" id="pelvis1" autoplay controls muted loop height="100%">
+            <source src="./static/videos/0001.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<!-- video carousel -->
+
+
+<!-- video carousel -->
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <br>
+    <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3">Application</h2>
+    </div>
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       
+        <div class="item 100">
+          <video poster="" id="pelvis1" autoplay controls muted loop height="100%">
+            <source src="./static/videos/demo1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item 100">
+          <video poster="" id="pelvis1" autoplay controls muted loop height="100%">
+            <source src="./static/videos/demo2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+
+<!-- Paper poster -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <center>
+        <h2 class="title is-3">Technical Paper</h2>
+      </center>
+      <br>
+      <hr>
+      <!-- <table align=center width=450px> -->
+      <table align=center width=900px>
+        <tr>
+          <td><a href=" "><img class="layered-paper-big" style="height:180px"
+                                                    src="static/images/poster.png"/></a></td>
+          <td><span style="font-size:10pt">Yongkang Cheng, Shaoli Huang, Xuelin Chen, Jifeng Ning, Mingming Gong<br>
+				<b>DIDiffGes: Decoupled Semi-Implicit Diffusion Models for Real-time Gesture Generation from Speech</b><br>
+				arXiv:2310.12678, 2023.<br>
+            <!--(<a href="https://arxiv.org/pdf/2303.05938.pdf">camera ready</a>)<br>-->
+				<span style="font-size:4pt"><a href=""><br></a>
+				</span>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <!-- <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
+          </iframe> -->
+
+    </div>
+  </div>
+</section>
+<!--End paper poster -->
+
+
+<!-- BibTex citation -->
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{zhang2023tapmo,
+      title={TapMo: Shape-aware Motion Generation of Skeleton-free Characters}, 
+      author={Jiaxu Zhang and Shaoli Huang and Zhigang Tu and Xin Chen and Xiaohang Zhan and Gang Yu and Ying Shan},
+      year={2023},
+      eprint={2310.12678},
+      archivePrefix={arXiv},
+      primaryClass={cs.GR}
+}</code></pre>
+  </div>
+</section> -->
+<!--End BibTex citation -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"
+                                                target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+
+            This page was built using the <a href="https://nerfies.github.io/" target="_blank">Nerfies website</a>.
+            You are free to borrow the of this website, we just ask that you link back to this page in the footer.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+<!-- End of Statcounter Code -->
+
+</body>
+</html>
